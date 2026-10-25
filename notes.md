@@ -33,3 +33,18 @@ The #main p selector overrides .hero p because an ID selector has higher specifi
 | Attribute | a[href^="http"] |
 | Pseudo-class | a:hover |
 | Pseudo-element | .menu-group h2::before |
+
+## Bug log (Lab 4, Task 6)
+
+| # | What was wrong (file and line) | Which tool showed it | My fix |
+|---|---|---|---|
+| 1 | bugs.html: stylesheet linked to style.css instead of bugs.css | Network | Changed href to bugs.css |
+| 2 | bugs.html: html element had no lang attribute | W3C Validator / Lighthouse | Added lang="en" |
+| 3 | bugs.html: navigation used a div instead of a nav element | Accessibility tree | Replaced div with nav |
+| 4 | bugs.html: h4 followed h1, skipping heading levels | W3C Validator | Changed h4 to h2 |
+| 5 | bugs.html: image was missing alt text | Lighthouse / W3C Validator | Added descriptive alt text |
+| 6 | bugs.html: label for="mail" did not match input id="email" | Lighthouse / W3C Validator | Changed for to email |
+| 7 | bugs.css: colour property was misspelled | Styles pane | Changed colour to color |
+| 8 | bugs.css: missing semicolon after hover background prevented cursor rule from working | Styles pane | Added semicolon |
+| 9 | bugs.css: .notes selector did not match class="note" | Styles pane | Changed .notes to .note |
+| 10 | bugs.css: note text had weak colour contrast | Lighthouse after stylesheet loaded | Changed text color to #595959 |
