@@ -48,3 +48,17 @@ The #main p selector overrides .hero p because an ID selector has higher specifi
 | 8 | bugs.css: missing semicolon after hover background prevented cursor rule from working | Styles pane | Added semicolon |
 | 9 | bugs.css: .notes selector did not match class="note" | Styles pane | Changed .notes to .note |
 | 10 | bugs.css: note text had weak colour contrast | Lighthouse after stylesheet loaded | Changed text color to #595959 |
+
+## Live site observations (Lab 4, Task 7)
+
+### 1. Localhost vs Live Website
+On localhost, the website used HTTP with the address 127.0.0.1:5500, and requests were handled by the local development server. The published website uses HTTPS and is served by GitHub Pages. In DevTools, the live website returned status 200 OK, showed the server header as GitHub.com, and had a remote address of 185.199.109.153:443.
+
+### 2. HTTPS and Security Certificate
+The HTTPS connection encrypts data exchanged between the browser and the website and uses a certificate to help verify the server's identity. If the website used plain HTTP, an attacker on the same Wi-Fi network could potentially read or modify the information being transferred.
+
+### 3. Local Storage
+The Saved orders table was empty on the live website because localStorage data belongs to a specific origin. Orders stored on 127.0.0.1:5500 are separate from orders stored on sehartariq19.github.io. The live website therefore has its own localStorage data.
+
+### 4. Missing Page and HTTP 404
+When a non-existent page such as nothing-here.html is requested, the server should return HTTP status 404 Not Found. On the published website, this response is provided by GitHub Pages rather than the local development server.
