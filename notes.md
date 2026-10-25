@@ -13,3 +13,23 @@
 ## Why is this address http and not https?
 
 This website runs on a local development server at 127.0.0.1, so the communication stays on my own computer. HTTPS encrypts traffic travelling over a network, but this local development setup uses HTTP because the traffic does not leave my computer.
+
+## Specificity experiment
+
+The #main p selector overrides .hero p because an ID selector has higher specificity than a class selector. When changed to main p, the .hero p rule wins and the hero paragraph returns to white.
+
+## Selectors I used
+
+| Selector kind | Example from my CSS |
+|---------------|---------------------|
+| Element | body |
+| Class | .card |
+| ID | #main |
+| Grouping (comma) | h1, h2, h3 |
+| Descendant (space) | .nav-list a |
+| Child (>) | main > section |
+| Adjacent sibling (+) | h1 + p |
+| Compound | .nav-list a.active |
+| Attribute | a[href^="http"] |
+| Pseudo-class | a:hover |
+| Pseudo-element | .menu-group h2::before |
