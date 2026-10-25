@@ -26,6 +26,9 @@ body {
   line-height: 1.6;
   color: var(--text);
   background: var(--bg);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 /* ---------- 2. Headings, links, focus ---------- */
@@ -35,11 +38,24 @@ h1, h2, h3 {
   line-height: 1.2;
 }
 
-h1 { font-size: 2.25rem; margin: 0 0 var(--space); }
-h2 { font-size: 1.6rem; margin: 0 0 var(--space); }
-h3 { font-size: 1.2rem; margin: 0 0 8px; }
+h1 {
+  font-size: 2.25rem;
+  margin: 0 0 var(--space);
+}
 
-a { color: var(--brand); }
+h2 {
+  font-size: 1.6rem;
+  margin: 0 0 var(--space);
+}
+
+h3 {
+  font-size: 1.2rem;
+  margin: 0 0 8px;
+}
+
+a {
+  color: var(--brand);
+}
 
 a:hover {
   color: var(--brand-dark);
@@ -58,8 +74,10 @@ textarea:focus-visible {
 /* ---------- 3. Page shell ---------- */
 #main {
   max-width: 1000px;
+  width: 100%;
   margin: 0 auto;
   padding: 24px;
+  flex: 1;
 }
 
 main > section,
@@ -75,12 +93,23 @@ h1 + p {
 
 /* ---------- 4. Header and navigation ---------- */
 .site-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
   background: var(--brand-dark);
   color: #fff;
   padding: 12px 24px;
 }
 
 .brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
   color: #fff;
   text-decoration: none;
   font-family: Georgia, "Times New Roman", serif;
@@ -89,8 +118,10 @@ h1 + p {
 }
 
 .nav-list {
+  display: flex;
+  gap: 8px;
   list-style: none;
-  margin: 12px 0 0;
+  margin: 0;
   padding: 0;
 }
 
@@ -118,6 +149,11 @@ h1 + p {
 
 /* ---------- 5. Footer ---------- */
 .site-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 24px;
   background: var(--brand-dark);
   color: #fff;
   padding: 20px 24px;
@@ -208,11 +244,13 @@ figcaption {
 }
 
 .menu-item {
+  position: relative;
+  flex: 1 1 300px;
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 16px 20px;
-  margin-bottom: 16px;
+  margin-bottom: 0;
 }
 
 .menu-item p {
@@ -323,19 +361,6 @@ input[placeholder]:not(:placeholder-shown):invalid {
 }
 
 /* ---------- 10. Positioning ---------- */
-
-/* Sticky header */
-.site-header {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
-
-/* Badge inside menu cards */
-.menu-item {
-  position: relative;
-}
-
 .badge {
   position: absolute;
   top: 12px;
@@ -348,7 +373,6 @@ input[placeholder]:not(:placeholder-shown):invalid {
   border-radius: 999px;
 }
 
-/* Fixed back-to-top button */
 .back-to-top {
   position: fixed;
   right: 20px;
@@ -371,7 +395,6 @@ input[placeholder]:not(:placeholder-shown):invalid {
   color: #fff;
 }
 
-/* Skip link */
 .skip-link {
   position: absolute;
   left: -9999px;
@@ -388,36 +411,7 @@ input[placeholder]:not(:placeholder-shown):invalid {
   border-radius: 8px;
 }
 
-/* ---------- 11. Flexbox: header, nav, footer ---------- */
-.site-header {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-}
-
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.nav-list {
-  display: flex;
-  gap: 8px;
-  margin: 0;
-}
-
-.site-footer {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 8px 24px;
-}
-
-/* ---------- 12. Flexbox: cards and menu ---------- */
+/* ---------- 11. Flexbox: cards and menu ---------- */
 .card-row {
   display: flex;
   flex-wrap: wrap;
@@ -434,11 +428,6 @@ input[placeholder]:not(:placeholder-shown):invalid {
   gap: 16px;
 }
 
-.menu-item {
-  flex: 1 1 300px;
-  margin-bottom: 0;
-}
-
 .item-head {
   display: flex;
   justify-content: space-between;
@@ -446,19 +435,7 @@ input[placeholder]:not(:placeholder-shown):invalid {
   gap: 12px;
 }
 
-/* Keep footer at bottom of short pages */
-body {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-#main {
-  width: 100%;
-  flex: 1;
-}
-
-/* ---------- 13. Flexbox: form layout ---------- */
+/* ---------- 12. Flexbox: form layout ---------- */
 .form-row {
   display: flex;
   flex-wrap: wrap;
@@ -497,16 +474,25 @@ fieldset.choice {
   margin-bottom: 16px;
 }
 
-/* ---------- 14. Responsive ---------- */
+/* ---------- 13. Responsive ---------- */
 img {
   max-width: 100%;
   height: auto;
 }
 
 @media (max-width: 768px) {
-  h1 { font-size: 1.9rem; }
-  #main { padding: 16px; }
-  .hero { padding: 32px 20px; }
+  h1 {
+    font-size: 1.9rem;
+  }
+
+  #main {
+    padding: 16px;
+  }
+
+  .hero {
+    padding: 32px 20px;
+  }
+
   .site-header {
     flex-direction: column;
     align-items: flex-start;
@@ -514,12 +500,16 @@ img {
 }
 
 @media (max-width: 480px) {
-  .nav-list { flex-wrap: wrap; }
+  .nav-list {
+    flex-wrap: wrap;
+  }
+
   .btn {
     display: block;
     width: 100%;
     text-align: center;
   }
+
   .site-footer {
     flex-direction: column;
     align-items: flex-start;
